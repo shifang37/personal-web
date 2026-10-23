@@ -1,0 +1,10 @@
+# 依赖 / 系统文件
+node_modules/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 编辑器
+.vscode/
+.idea/
+*.log
