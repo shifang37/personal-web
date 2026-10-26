@@ -51,9 +51,51 @@ node preview.mjs
 
 顺手把 `og:title`、`og:description`、`<meta name="description">` 也换成自己的，分享出去更好看。
 
-## 4. 部署（两种都免费，二选一）
+## 4. 部署（三种都免费，选一个）
 
-### 方案一：Vercel（推荐，最省事）
+### 方案零：Vercel CLI —— 不用 GitHub、不用仓库（推荐）
+
+如果你的网络访问 GitHub 不稳定（登录报错、推送超时），直接跳过 Git，
+用命令行把本地文件夹传上去就行。
+
+```powershell
+cd C:\Users\shifang37\Desktop\personal-web
+
+# 第 1 次会下载 CLI，几秒到 1 分钟
+npx vercel login      # 选 "Continue with Email"，填你的 Gmail，去邮箱点验证链接
+npx vercel --prod     # 首次部署，按提示回答下面几个问题
+```
+
+`npx vercel --prod` 的交互回答：
+
+| 提示 | 回答 |
+|---|---|
+| Set up and deploy? | `Y` |
+| Which scope? | 选你自己的账号 |
+| Link to existing project? | `N` |
+| What's your project's name? | `personal-web` |
+| In which directory is your code located? | `./` |
+
+结束后会打印一个 `https://personal-web-xxxx.vercel.app`，先打开确认能访问。
+以后每次改完内容，只要再跑一次 `npx vercel --prod` 就更新了。
+
+> 如果 `npx` 卡在下载不动，换国内镜像再试：
+> ```powershell
+> npm config set registry https://registry.npmmirror.com
+> ```
+> 站点本身不依赖任何 npm 包，这只是为了下载 Vercel CLI。
+
+绑定域名：**直接在 Vercel 后台** Project → Settings → Domains 里添加
+`shifang37.com` 和 `www.shifang37.com`，它会显示需要到阿里云添加的 DNS 记录（见第 5 节）。
+
+CLI 也能做，但部分版本要求先在 Account Settings → Domains 里把域名加到账号下，
+所以后台操作更省事：
+
+```powershell
+npx vercel domains add shifang37.com   # 可选
+```
+
+### 方案一：Vercel + GitHub（能稳定访问 GitHub 时）
 
 1. 把项目推到一个 GitHub 仓库：
    ```powershell
@@ -122,6 +164,24 @@ DNS 生效通常 10 分钟到几小时，最长按 TTL 算。HTTPS 证书是平�
 域名解析生效后一般几分钟内就能拿到，第一次访问如果提示证书问题，等一会儿再刷新。
 
 ## 7. 常见问题
+
+**平台要手机验证，+86 号码收不到短信 / 提示 temporarily blocked**
+这几乎是中国大陆号码的普遍问题：GitHub、Vercel 的短信通道对 +86 投递率很低，
+运营商也会拦截部分国际短信。反复点「发送验证码」会触发风控，
+号码被临时封禁（通常 12 小时），期间再点只会重置计时。
+
+处理原则：
+1. **停止重试**，等冷却时间过去。
+2. **别走需要短信的入口**——Vercel 直接用 Google（Email）登录 + 命令行部署，
+   整条链路不需要 GitHub，也就不需要任何短信验证（见「方案零」）。
+3. 号码格式填 `+86` 后紧跟 11 位手机号，不要带前导 0 或空格。
+4. 实在要用 GitHub：优先绑定 **2FA App（TOTP）** 而不是短信；不要用接码平台，
+   违反服务条款会导致封号。
+
+**Vercel 用 GitHub 登录总是报错**
+Vercel 的 GitHub 登录要走 `github.com` 的 OAuth 跳转，网络不通/被重置就会失败，
+和账号本身无关。改走 **Email 登录**（填 Gmail，收验证邮件）即可，
+部署用上面的「方案零」，完全不需要 GitHub。
 
 **访问显示「不安全」/ 证书错误**
 证书要等平台签发完成。Vercel 一般在 DNS 验证通过后 1~5 分钟自动签好；GitHub Pages 需要先在 Pages 设置里勾 **Enforce HTTPS**。

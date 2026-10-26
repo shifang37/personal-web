@@ -1,0 +1,7 @@
+# 这些只在本地用，不需要发布到线上
+README.md
+preview.mjs
+docs/
+deploy/
+.gitignore
+.preview-desktop.png
