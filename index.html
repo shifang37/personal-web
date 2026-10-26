@@ -112,24 +112,84 @@
         <h2 class="section-title" data-reveal><span class="idx">02</span> 项目</h2>
         <p class="section-sub" data-reveal>都在 GitHub 上，点标题或箭头可以直达仓库。</p>
 
-        <div class="cards">
-          <article class="card project" data-reveal>
-            <div class="project-top">
-              <span class="project-no">01</span>
-              <a class="project-link" href="https://github.com/shifang37/vAgent" target="_blank" rel="noopener" aria-label="在 GitHub 查看 vAgent">↗</a>
+        <!-- 主推项目：大卡片，右侧是流程示意（不是截图，是项目真实的工作流） -->
+        <div class="featured">
+          <article class="card project feature" data-reveal>
+            <div class="feature-body">
+              <div class="project-top">
+                <span class="project-no">01</span>
+                <a class="project-link" href="https://github.com/shifang37/vAgent" target="_blank" rel="noopener" aria-label="在 GitHub 查看 vAgent">↗</a>
+              </div>
+              <h3><a href="https://github.com/shifang37/vAgent" target="_blank" rel="noopener">vAgent</a></h3>
+              <p>
+                面向视频创作的 Agent：一句话生成分镜，调用视频模型出片，再本地拼接成片并加字幕配音。
+                支持多供应商路由、逐镜头重做与多集时间线。
+              </p>
+              <ul class="tags small">
+                <li>Python</li>
+                <li>LangGraph</li>
+                <li>FFmpeg</li>
+                <li>DeepSeek</li>
+              </ul>
+              <a class="feature-more" href="https://github.com/shifang37/vAgent" target="_blank" rel="noopener">在 GitHub 查看 →</a>
             </div>
-            <h3><a href="https://github.com/shifang37/vAgent" target="_blank" rel="noopener">vAgent</a></h3>
-            <p>面向视频创作的 Agent：一句话生成分镜，调用视频模型出片，再本地拼接成片并加字幕配音。</p>
-            <ul class="tags small">
-              <li>Python</li>
-              <li>LangGraph</li>
-              <li>FFmpeg</li>
-            </ul>
+            <div class="feature-visual">
+              <span class="visual-label">工作流</span>
+              <pre class="flow"><span class="flow-dim">一句话需求</span>
+      ↓
+分镜 · 分集 · 场记
+      ↓
+视频模型  Wan / Kling / fal
+      ↓
+<span class="flow-accent">本地 FFmpeg 拼接</span>
+      ↓
+字幕 · 配音 · 转场
+      ↓
+成片 MP4</pre>
+            </div>
           </article>
+
+          <article class="card project feature" data-reveal>
+            <div class="feature-body">
+              <div class="project-top">
+                <span class="project-no">02</span>
+                <a class="project-link" href="https://github.com/shifang37/ai-code-agent-python" target="_blank" rel="noopener" aria-label="在 GitHub 查看 ai-code-agent-python">↗</a>
+              </div>
+              <h3><a href="https://github.com/shifang37/ai-code-agent-python" target="_blank" rel="noopener">ai-code-agent-python</a></h3>
+              <p>
+                给一句话需求就生成可运行的前端项目；构建失败时不是自我检讨，
+                而是把真实编译报错和相关源文件回喂给模型做定点修复，最多 3 轮。
+              </p>
+              <ul class="tags small">
+                <li>Python</li>
+                <li>FastAPI</li>
+                <li>LangGraph</li>
+              </ul>
+              <a class="feature-more" href="https://github.com/shifang37/ai-code-agent-python" target="_blank" rel="noopener">在 GitHub 查看 →</a>
+            </div>
+            <div class="feature-visual">
+              <span class="visual-label">自修复闭环</span>
+              <pre class="flow"><span class="flow-dim">一句需求</span>
+      ↓
+router · 选生成模式
+      ↓
+code_generator
+      ↓
+<span class="flow-accent">npm run build</span>
+      ↓ 编译失败
+回喂报错 + 相关源文件
+定点修复（≤ 3 轮）→ 重新构建
+      ↓ 构建通过
+可预览 / 可部署 / 可下载</pre>
+            </div>
+          </article>
+        </div>
+
+        <div class="cards">
 
           <article class="card project" data-reveal>
             <div class="project-top">
-              <span class="project-no">02</span>
+              <span class="project-no">03</span>
               <a class="project-link" href="https://github.com/shifang37/hookflow" target="_blank" rel="noopener" aria-label="在 GitHub 查看 hookflow">↗</a>
             </div>
             <h3><a href="https://github.com/shifang37/hookflow" target="_blank" rel="noopener">hookflow</a></h3>
@@ -138,20 +198,6 @@
               <li>Java</li>
               <li>Spring Boot</li>
               <li>RabbitMQ</li>
-            </ul>
-          </article>
-
-          <article class="card project" data-reveal>
-            <div class="project-top">
-              <span class="project-no">03</span>
-              <a class="project-link" href="https://github.com/shifang37/ai-code-agent-python" target="_blank" rel="noopener" aria-label="在 GitHub 查看 ai-code-agent-python">↗</a>
-            </div>
-            <h3><a href="https://github.com/shifang37/ai-code-agent-python" target="_blank" rel="noopener">ai-code-agent-python</a></h3>
-            <p>给一句话需求就生成可运行的前端项目，构建报错时能自己修。</p>
-            <ul class="tags small">
-              <li>Python</li>
-              <li>FastAPI</li>
-              <li>LangGraph</li>
             </ul>
           </article>
 

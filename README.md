@@ -49,7 +49,9 @@ GitHub 账号、6 个来自 GitHub 的项目卡片）。还有两处是空的/�
 | 想改什么 | 改哪里 |
 |---|---|
 | 名字 / 页脚署名 | `index.html` 里的 `shifang37`（brand、h1、页脚） |
-| 加一个项目 | 复制一整块 `<article class="card project">`，改标题、描述、链接、标签 |
+| 主推项目（大卡片） | `.featured` 区块里的两篇 `article.card.project.feature`，右侧 `.flow` 是流程示意 |
+| 加一个普通项目 | 复制一整块 `<article class="card project">`（放在 `.cards` 里），改标题、描述、链接、标签 |
+| 把项目升为大卡片 | 把 `<article>` 移进 `.featured`，加 `feature` 类，按大卡片结构重排 |
 | 删一个项目 | 直接删掉对应 `<article>` 块 |
 | 技术栈 / 关注方向 | 「关于」区块里的两个 `.skills` 卡片 |
 | 配色 | 只改 `assets/style.css` 顶部 `:root` 的 `--accent`、`--accent-2` |
