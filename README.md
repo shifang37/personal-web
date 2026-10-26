@@ -34,22 +34,28 @@ node preview.mjs
 
 > 也可以直接双击 `index.html` 打开，但那样 `mailto:` 之外的一些行为可能和线上略有差别，建议用上面的方式。
 
-## 3. 上线前必须改的地方
+## 3. 内容维护
 
-打开 `index.html`，搜索替换下面这些（都在 HTML 注释里标了「改这里」）：
+`index.html` 里已经填好真实信息（名字 `shifang37`、邮箱 `shifang37@outlook.com`、
+GitHub 账号、6 个来自 GitHub 的项目卡片）。还有两处是空的/待补的：
 
-| 位置 | 现在的内容 | 改成 |
+| 位置 | 状态 | 怎么补 |
 |---|---|---|
-| `<title>` / `brand` / `h1` / 页脚 | `你的名字` | 你的真名或昵称 |
-| Hero 的 `.lede` | 示例自我介绍 | 一两句话介绍你自己 |
-| `.meta` 三个标签 | 📍 深圳 / 💼 开放合作 / 🎧 | 你的实际情况，或直接删掉 |
-| 「关于我」三段 | 示例文案 | 你的经历 |
-| `.skills` 标签 | TypeScript / React ... | 你真会的技术 |
-| 三张 `.project` 卡片 | 项目名称一/二/三 | 你的项目，链接填仓库或演示地址 |
-| `mailto:hello@shifang37.com` | 占位邮箱 | 你真实的邮箱 |
-| GitHub / X 链接 | `你的用户名` | 你的账号，没有就删掉整个 `<a>` |
+| Hero 的 `.lede`（简介） | **已注释掉，暂空** | 取消注释并写一句话介绍 |
+| 页脚 ICP 备案号 | 注释状态 | 走大陆服务器备案后再启用 |
 
-顺手把 `og:title`、`og:description`、`<meta name="description">` 也换成自己的，分享出去更好看。
+其他常见修改：
+
+| 想改什么 | 改哪里 |
+|---|---|
+| 名字 / 页脚署名 | `index.html` 里的 `shifang37`（brand、h1、页脚） |
+| 加一个项目 | 复制一整块 `<article class="card project">`，改标题、描述、链接、标签 |
+| 删一个项目 | 直接删掉对应 `<article>` 块 |
+| 技术栈 / 关注方向 | 「关于」区块里的两个 `.skills` 卡片 |
+| 配色 | 只改 `assets/style.css` 顶部 `:root` 的 `--accent`、`--accent-2` |
+| 分享卡片文案 | `<meta property="og:*">` 和 `<meta name="description">` |
+
+改完本地预览：`node preview.mjs` → <http://127.0.0.1:5500>
 
 ## 4. 部署（三种都免费，选一个）
 

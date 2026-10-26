@@ -393,6 +393,8 @@ h1, h2, h3 { line-height: 1.25; margin: 0 0 0.6em; letter-spacing: -0.02em; }
   font-size: 1.06rem;
   margin-bottom: 0.5em;
 }
+.project h3 a { transition: color 0.2s ease; }
+.project h3 a:hover { color: var(--accent); }
 .project p {
   margin: 0 0 18px;
   font-size: 0.925rem;
